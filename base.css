@@ -1,0 +1,73 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CSS Variables ===== */
+:root {
+  --brand: #1a5fb4;
+  --brand-dark: #10396e;
+  --text-color: #222;
+  --bg-color: #fff;
+  --spacing-md: 1rem;
+}
+
+/* ===== Base typography ===== */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  padding: var(--spacing-md) 2rem;
+  line-height: 1.6; /* comfortable reading line-height, ~1.5 */
+}
+
+h1, h2, h3 {
+  font-family: Georgia, serif; /* grouped selector */
+  color: var(--brand);
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center; /* keyword value */
+  letter-spacing: 1px; /* text property */
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ===== Links ===== */
+a {
+  color: var(--brand);
+}
+a:visited {
+  color: var(--brand-dark);
+}
+a:hover {
+  text-decoration: underline;
+}
+a:focus {
+  outline: 3px solid orange;
+  outline-offset: 2px;
+}
+
+/* ===== Skip link (B16) ===== */
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--brand);
+  color: #fff;
+}

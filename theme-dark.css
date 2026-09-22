@@ -1,0 +1,24 @@
+/* theme-dark.css */
+:root {
+  --text-color: #f0f0f0;
+  --bg-color: #1a1a1a;
+  --brand: #7db8ff;
+  --brand-dark: #4a90d9;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.banner,
+.events,
+form fieldset,
+footer {
+  border-color: #444;
+  background-color: #242424;
+}
+
+th, td {
+  border-color: #444;
+}
