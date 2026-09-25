@@ -16,219 +16,234 @@
     <!-- skip link -->
     <a href="#main" class="skip">Skip to content</a>
 
-    <!-- primary navigation -->
-    <nav aria-label="Primary">
-      <ul>
-        <li><a href="#upcoming" class="active">Upcoming Events</a></li>
-        <li><a href="#submit">Submit an Event</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-      </ul>
-    </nav>
+    <div class="page-container">
 
-    <!-- main content -->
-    <main id="main">
+      <!-- primary navigation (B2/B6 - grid area: nav) -->
+      <nav class="main-nav" aria-label="Primary">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="#upcoming" class="active">Upcoming Events</a></li>
+          <li><a href="#submit">Submit an Event</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- site header (B2 - moved outside main, grid area: header) -->
       <header class="site-header">
         <img src="logo.png" alt="IIIT Vadodara Logo" width="150" height="150" />
         <h1>Campus Event Board</h1>
         <p>Find all the latest events and activities happening on campus.</p>
       </header>
 
-      <!-- banner -->
-      <section class="banner">
-        <h2>Campus Events</h2>
-        <p>Learn. Build. Celebrate. <span lang="hi">स्वागत है</span></p>
-      </section>
+      <!-- main content (B2 - grid area: main) -->
+      <main id="main">
 
-      <!-- upcoming events -->
-      <section id="upcoming" class="events">
-        <h2>Upcoming Events</h2>
+        <!-- banner -->
+        <section class="banner">
+          <h2>Campus Events</h2>
+          <p>Learn. Build. Celebrate. <span lang="hi">स्वागत है</span></p>
+        </section>
 
-        <article>
-          <h3>AI Workshop</h3>
-          <p><time datetime="2026-09-04T15:00">Friday, 4 Sept, 3:00 PM</time> — Auditorium</p>
-        </article>
+        <!-- upcoming events -->
+        <section id="upcoming" class="events">
+          <h2>Upcoming Events</h2>
 
-        <article>
-          <h3>Coding Hackathon</h3>
-          <p><time datetime="2026-09-05T10:00">Saturday, 5 Sept, 10:00 AM</time> — CS Block</p>
-        </article>
+          <article>
+            <h3>AI Workshop</h3>
+            <p><time datetime="2026-09-04T15:00">Friday, 4 Sept, 3:00 PM</time> — Auditorium</p>
+          </article>
 
-        <article>
-          <h3>Cultural Fest</h3>
-          <figure>
-            <img src="cultural-fest.jpg" alt="Students performing on stage during last year's Cultural Fest">
-            <figcaption>Last year's Cultural Fest closing performance.</figcaption>
-          </figure>
-          <p><time datetime="2026-09-06">Sunday, 6 Sept</time> — Main Grounds</p>
-          <p><mark>Free entry</mark> for all students.</p>
-        </article>
+          <article>
+            <h3>Coding Hackathon</h3>
+            <p><time datetime="2026-09-05T10:00">Saturday, 5 Sept, 10:00 AM</time> — CS Block</p>
+          </article>
 
-        <article>
-          <h3>Startup Pitch Night</h3>
-          <p><time datetime="2026-09-07T18:00">Monday, 7 Sept, 6:00 PM</time> — Seminar Hall</p>
-        </article>
+          <article>
+            <h3>Cultural Fest</h3>
+            <figure>
+              <img src="cultural-fest.jpg" alt="Students performing on stage during last year's Cultural Fest">
+              <figcaption>Last year's Cultural Fest closing performance.</figcaption>
+            </figure>
+            <p><time datetime="2026-09-06">Sunday, 6 Sept</time> — Main Grounds</p>
+            <p><mark>Free entry</mark> for all students.</p>
+          </article>
 
-        <article>
-          <h3>Sports Meet</h3>
-          <p><time datetime="2026-09-12">12 Sept</time> — Sports Complex</p>
-        </article>
-      </section>
+          <article>
+            <h3>Startup Pitch Night</h3>
+            <p><time datetime="2026-09-07T18:00">Monday, 7 Sept, 6:00 PM</time> — Seminar Hall</p>
+          </article>
 
-      <!-- event submission form -->
-      <section id="submit">
-        <h2>Submit an Event</h2>
-        <form id="eventForm">
+          <article>
+            <h3>Sports Meet</h3>
+            <p><time datetime="2026-09-12">12 Sept</time> — Sports Complex</p>
+          </article>
+        </section>
+
+        <!-- event submission form -->
+        <section id="submit">
+          <h2>Submit an Event</h2>
+          <form id="eventForm">
+            <p>
+              <label for="eventName">Event Name:</label>
+              <input
+                type="text"
+                id="eventName"
+                name="eventName"
+                placeholder="Enter event name"
+                required
+              />
+            </p>
+            <p>
+              <label for="eventDate">Date:</label>
+              <input type="date" id="eventDate" name="eventDate" required />
+            </p>
+            <p>
+              <label for="eventLocation">Location:</label>
+              <input
+                type="text"
+                id="eventLocation"
+                name="eventLocation"
+                placeholder="Enter location"
+                required
+              />
+            </p>
+            <p>
+              <label for="eventEmail">Email:</label>
+              <input
+                type="email"
+                id="eventEmail"
+                name="eventEmail"
+                placeholder="Enter your email"
+                required
+              />
+            </p>
+            <p>
+              <label for="eventDescription">Description:</label>
+              <textarea
+                id="eventDescription"
+                name="eventDescription"
+                rows="4"
+                placeholder="Describe the event"
+                required
+              ></textarea>
+            </p>
+            <fieldset>
+              <legend>Event Type</legend>
+              <label><input type="radio" name="eventType" value="technical" /> Technical</label>
+              <label><input type="radio" name="eventType" value="cultural" /> Cultural</label>
+              <label><input type="radio" name="eventType" value="sports" /> Sports</label>
+              <label><input type="radio" name="eventType" value="social" /> Social</label>
+            </fieldset>
+            <fieldset>
+              <legend>Audience</legend>
+              <label><input type="checkbox" name="audience" value="students" /> Students</label>
+              <label><input type="checkbox" name="audience" value="faculty" /> Faculty</label>
+              <label><input type="checkbox" name="audience" value="alumni" /> Alumni</label>
+              <label><input type="checkbox" name="audience" value="open" /> Open to All</label>
+            </fieldset>
+            <button type="submit">Add Event</button>
+            <p id="successMsg" class="success-msg">Event submitted successfully!</p>
+          </form>
+
+          <script>
+            document.getElementById('eventForm').addEventListener('submit', function(e) {
+              e.preventDefault();
+              document.getElementById('successMsg').style.display = 'block';
+              this.reset();
+            });
+          </script>
+        </section>
+
+        <!-- event categories -->
+        <section id="info">
+          <h2>Event Categories</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Meeting Day</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Technical</td>
+                <td>Monday</td>
+              </tr>
+              <tr>
+                <td>Cultural</td>
+                <td>Wednesday</td>
+              </tr>
+              <tr>
+                <td>Sports</td>
+                <td>Friday</td>
+              </tr>
+              <tr>
+                <td>Social</td>
+                <td>Saturday</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- faq (B2 - moved inside main) -->
+        <section id="faq">
+          <h2>FAQ</h2>
+          <details>
+            <summary>Who can submit an event?</summary>
+            <p>Any student, faculty member, or club representative can submit an event using the form above.</p>
+          </details>
+          <details>
+            <summary>How long does approval take?</summary>
+            <p>Submitted events are usually reviewed and listed within 24 hours.</p>
+          </details>
+        </section>
+
+      </main>
+
+      <!-- footer (B2 - grid area: footer) -->
+      <footer>
+        <!-- footer navigation (B2 - kept inside footer) -->
+        <nav class="footer-nav" aria-label="Footer">
+          <ul>
+            <li><a href="#upcoming">Events</a></li>
+            <li><a href="#submit">Submit</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#main" aria-label="Back to top">↑</a></li>
+          </ul>
+        </nav>
+
+        <address>
+          <p><b>Address:</b> Block No. 9, Government Engineering College, Sector-28,
+          Gandhinagar, Gujarat - 382028</p>
+          <p><b>Phone:</b> +91-79-29750281</p>
           <p>
-            <label for="eventName">Event Name:</label>
-            <input
-              type="text"
-              id="eventName"
-              name="eventName"
-              placeholder="Enter event name"
-              required
-            />
+            <b>Email:</b>
+            <a href="mailto:info@iiitvadodara.ac.in">info@iiitvadodara.ac.in</a>
           </p>
           <p>
-            <label for="eventDate">Date:</label>
-            <input type="date" id="eventDate" name="eventDate" required />
+            <b>Website:</b>
+            <a href="https://iiitvadodara.ac.in"><abbr title="Indian Institute of Information Technology Vadodara">IIIT Vadodara</abbr></a>
           </p>
-          <p>
-            <label for="eventLocation">Location:</label>
-            <input
-              type="text"
-              id="eventLocation"
-              name="eventLocation"
-              placeholder="Enter location"
-              required
-            />
-          </p>
-          <p>
-            <label for="eventEmail">Email:</label>
-            <input
-              type="email"
-              id="eventEmail"
-              name="eventEmail"
-              placeholder="Enter your email"
-              required
-            />
-          </p>
-          <p>
-            <label for="eventDescription">Description:</label>
-            <textarea
-              id="eventDescription"
-              name="eventDescription"
-              rows="4"
-              placeholder="Describe the event"
-              required
-            ></textarea>
-          </p>
-          <fieldset>
-            <legend>Event Type</legend>
-            <label><input type="radio" name="eventType" value="technical" /> Technical</label>
-            <label><input type="radio" name="eventType" value="cultural" /> Cultural</label>
-            <label><input type="radio" name="eventType" value="sports" /> Sports</label>
-            <label><input type="radio" name="eventType" value="social" /> Social</label>
-          </fieldset>
-          <fieldset>
-            <legend>Audience</legend>
-            <label><input type="checkbox" name="audience" value="students" /> Students</label>
-            <label><input type="checkbox" name="audience" value="faculty" /> Faculty</label>
-            <label><input type="checkbox" name="audience" value="alumni" /> Alumni</label>
-            <label><input type="checkbox" name="audience" value="open" /> Open to All</label>
-          </fieldset>
-          <button type="submit">Add Event</button>
-          <p id="successMsg" class="success-msg">Event submitted successfully!</p>
-        </form>
+        </address>
+        <p>As featured in <cite>The Campus Times.</cite></p>
+        <p><b>Team Members:</b></p>
+        <ul>
+          <li>20261651073 Rhitvik Jhalani (Team Leader)</li>
+          <li>20261651051 Lakshay Goyal</li>
+          <li>20261651054 Mohar Tewari</li>
+          <li>20261651028 Ayushi Kumari</li>
+        </ul>
+      </footer>
 
-        <script>
-          document.getElementById('eventForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('successMsg').style.display = 'block';
-            this.reset();
-          });
-        </script>
-      </section>
-
-      <!-- event categories -->
-      <section id="info">
-        <h2>Event Categories</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Meeting Day</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Technical</td>
-              <td>Monday</td>
-            </tr>
-            <tr>
-              <td>Cultural</td>
-              <td>Wednesday</td>
-            </tr>
-            <tr>
-              <td>Sports</td>
-              <td>Friday</td>
-            </tr>
-            <tr>
-              <td>Social</td>
-              <td>Saturday</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-    </main>
-
-    <!-- faq -->
-    <section id="faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Who can submit an event?</summary>
-        <p>Any student, faculty member, or club representative can submit an event using the form above.</p>
-      </details>
-      <details>
-        <summary>How long does approval take?</summary>
-        <p>Submitted events are usually reviewed and listed within 24 hours.</p>
-      </details>
-    </section>
-
-    <!-- footer navigation -->
-    <nav aria-label="Footer">
-      <ul>
-        <li><a href="#upcoming">Events</a></li>
-        <li><a href="#submit">Submit</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#main" aria-label="Back to top">↑</a></li>
-      </ul>
-    </nav>
-
-    <!-- footer -->
-    <footer>
-      <address>
-        <p><b>Address:</b> Block No. 9, Government Engineering College, Sector-28,
-        Gandhinagar, Gujarat - 382028</p>
-        <p><b>Phone:</b> +91-79-29750281</p>
-        <p>
-          <b>Email:</b>
-          <a href="mailto:info@iiitvadodara.ac.in">info@iiitvadodara.ac.in</a>
-        </p>
-        <p>
-          <b>Website:</b>
-          <a href="https://iiitvadodara.ac.in"><abbr title="Indian Institute of Information Technology Vadodara">IIIT Vadodara</abbr></a>
-        </p>
-      </address>
-      <p>As featured in <cite>The Campus Times.</cite></p>
-      <p><b>Team Members:</b></p>
-      <ul>
-        <li>20261651073 Rhitvik Jhalani (Team Leader)</li>
-        <li>20261651051 Lakshay Goyal</li>
-        <li>20261651054 Mohar Tewari</li>
-        <li>20261651028 Ayushi Kumari</li>
-      </ul>
-    </footer>
+    </div>
   </body>
 </html>

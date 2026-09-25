@@ -1,9 +1,40 @@
+/* A6 - border-box (must be at the very top of style.css) */
+* {
+  box-sizing: border-box;
+}
+
+/* A2 - design system colour palette */
+:root {
+  --brand: #1a5fb4;
+  --brand-dark: #10396e;
+  --accent: hsl(38 90% 52%);
+  --ink: #222;
+  --paper: #fff;
+  --surface: hsl(210 20% 98%);
+  --muted: #555;
+  --border: #999;
+  --border-light: #ccc;
+  --focus: rgb(255 165 0);
+  --overlay: rgb(0 0 0 / 40%);
+
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* A5 - type scale */
+  --text-small: 0.875rem;
+  --text-body: 1rem;
+  --text-h3: 1.25rem;
+  --text-h2: 1.5rem;
+  --text-h1: 3rem;
+}
+
 /* ===== Layout ===== */
 nav ul {
   display: flex;
   gap: 2rem;
   list-style: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border-light);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -15,30 +46,63 @@ nav a:hover {
 }
 
 section {
-  padding: 1rem 0;
-  margin-bottom: var(--spacing-md);
+  padding: 1rem 0 1.5rem 0; /* A7 - four-value shorthand: top right bottom left */
+  margin: 0 0 1rem 0;
 }
 section h2 {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border-light);
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
   text-transform: uppercase; /* text property */
 }
 
+/* A2 - primary navigation reworked for B2/B6 */
+nav.main-nav ul,
+nav.footer-nav ul {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 /* ===== Components ===== */
+
+/* A3 - banner overlay setup + A4 calc width */
 .banner {
+  width: calc(100% - 2rem); /* A4 - required calc() */
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 2rem 1rem;
-  border: 1px solid #ccc;
-  margin-bottom: 1.5rem;
+  border: 1px solid var(--border-light);
+  margin-bottom: var(--spacing-lg);
   background-image: url("banner-bg.jpg"); /* decorative image */
   background-size: cover;
   background-position: center;
 }
 
-article {
-  margin-bottom: var(--spacing-md);
-  padding: 0.5rem 0;
+/* A3 - semi-transparent overlay */
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+}
+
+/* Keep banner content above the overlay */
+.banner > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* A8 - event card component */
+.events article {
+  padding: 1rem;
+  border: 1px solid var(--border-light);
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%); /* required rgb() shadow */
+  margin: 0;
+  background-color: var(--paper);
 }
 article h3 {
   margin-bottom: 0.3rem;
@@ -48,8 +112,21 @@ figure {
   margin: 0.5rem 0;
 }
 figcaption {
-  font-size: 0.9rem;
-  color: #555;
+  font-size: var(--text-small);
+  color: var(--muted);
+}
+
+/* A9 - responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* A9 - uniform event thumbnail */
+figure img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
 }
 
 /* form */
@@ -58,7 +135,7 @@ form p {
 }
 form fieldset {
   margin-bottom: var(--spacing-md);
-  border: 1px solid #999;
+  border: 1px solid var(--border);
   padding: 0.5rem 1rem;
 }
 form legend {
@@ -75,8 +152,8 @@ input[type="email"],
 textarea {
   width: 50%;
   padding: 0.5rem;
-  border: 1px solid #999;
-  font-size: 1rem;
+  border: 1px solid var(--border);
+  font-size: var(--text-body);
   font-family: inherit;
 }
 .radio-group label,
@@ -88,10 +165,10 @@ textarea {
 }
 button[type="submit"] {
   padding: 0.6rem 1.5rem;
-  border: 1px solid #000;
+  border: 1px solid var(--ink);
   background-color: var(--brand);
-  color: #fff;
-  font-size: 1rem;
+  color: var(--paper);
+  font-size: var(--text-body);
   cursor: pointer;
 }
 button[type="submit"]:hover {
@@ -106,8 +183,8 @@ button[type="submit"]:hover {
 /* footer */
 footer {
   padding: 1.5rem 0;
-  font-size: 0.9rem;
-  border-top: 1px solid #ccc;
+  font-size: var(--text-small);
+  border-top: 1px solid var(--border-light);
   margin-top: var(--spacing-md);
 }
 footer nav ul {
@@ -128,9 +205,10 @@ table {
   border-collapse: collapse;
   text-align: left;
 }
-th, td {
+th,
+td {
   padding: 0.5rem 1rem;
-  border: 1px solid #999;
+  border: 1px solid var(--border);
 }
 
 /* faq */
@@ -142,158 +220,341 @@ summary {
   cursor: pointer;
 }
 
-/* events section */
-.events {
-  border: 2px solid #ccc; /* border shorthand */
-  border-radius: 8px;
-  padding: 1rem 1.5rem;
-  background-color: #f9f9f9;
-}
-
-/* A9 - low-specificity class selector */
-.site-header {
-    border-bottom: 2px solid var(--brand);
-    padding-bottom: 1rem;
-}
-
 /* ===== Cascade demo (B23) ===== */
 /* Deliberate conflict for B23 — tag selector vs class selector */
 section {
-  color: black;
+  color: var(--ink);
 }
 .events {
   color: darkgreen; /* wins — class has higher specificity than tag */
 }
 
-/* ===== Specificity demo (B25) ===== */
-h1 {
-  color: darkred; /* overrides base.css h1 { color: var(--brand); } — later file wins at same specificity */
-}
+/* ===== A6 - border-box notes element (see B6 .nav-toggle below) ===== */
+/* .nav-toggle gets width: 12.5rem; padding: 1rem; border: 0.3125rem solid —
+   content-box would render 234px, border-box renders 200px (12.5rem). */
 
 /* ===== Part A — Precise selectors ===== */
 
-/* A2 - descendant selector */
+/* A2 - descendant selector
+   (B2 note: header now sits outside main, so kept from Lab 4 but no longer matches) */
 main header {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* A2 - child combinator */
 main > header {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* A3 - adjacent sibling */
 h2 + p {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 /* A3 - general sibling */
 h2 ~ p {
-    margin-bottom: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 /* A4 - external HTTPS links */
 a[href^="https"]::after {
-    content: " \2197";
-    font-size: 0.8em;
+  content: " \2197";
+  font-size: 0.8em;
 }
 
 /* A4 - email input */
 input[type="email"] {
-    border-color: var(--brand);
+  border-color: var(--brand);
 }
 
 /* A4 - date input */
 input[type="date"] {
-    border-color: var(--brand-dark);
+  border-color: var(--brand-dark);
 }
 
 /* A5 - hover state */
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* A5 - focus state */
 a:focus {
-    outline: 3px solid orange;
-    outline-offset: 2px;
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
 }
 
 /* A5 - form input focus */
 input:focus,
 textarea:focus {
-    outline: 2px solid var(--brand);
-    outline-offset: 2px;
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
 
 /* A6 - even table rows */
 tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+  background-color: var(--surface);
 }
 
 /* A6 - first child */
 tbody tr:first-child td {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* A6 - last child */
 tbody tr:last-child td {
-    border-bottom: 2px solid var(--brand);
+  border-bottom: 2px solid var(--brand);
 }
 
 /* A6 - not selector */
 nav a:not(.active) {
-    opacity: 0.85;
+  opacity: 0.85;
 }
 
 /* A7 - generated content before figure */
 figure::before {
-    content: "\201C";
-    font-size: 2rem;
-    font-weight: bold;
-    margin-right: 0.2rem;
+  content: "\201C";
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 0.2rem;
 }
 
 /* A7 - placeholder text */
 input::placeholder,
 textarea::placeholder {
-    color: #777;
-    font-style: italic;
+  color: var(--muted);
+  font-style: italic;
 }
 
 /* A8 - LVHA order */
 
 /* Link */
 a:link {
-    color: var(--brand);
+  color: var(--brand);
 }
 
 /* Visited */
 a:visited {
-    color: var(--brand-dark);
+  color: var(--brand-dark);
 }
 
 /* Hover */
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* Active */
 a:active {
-    color: darkorange;
+  color: var(--accent);
 }
 
 /* B4 - inherit */
 .site-header p {
-    color: inherit;
+  color: inherit;
 }
 
 /* B4 - initial */
 .site-header {
-    margin: initial;
+  margin: initial;
 }
 
 /* B4 - unset */
 .events article {
-    line-height: unset;
+  line-height: unset;
+}
+
+/* ===== A4/A5 - base typography ===== */
+body {
+  font-family: Arial, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  padding: var(--spacing-md) 2rem;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+  color: var(--brand);
+}
+
+/* A4 - fluid heading (required clamp())
+   Lab 4 note: h1 { color: darkred } was the B25 specificity demo (later rule wins at
+   equal specificity). Moved here so the typography block below doesn't override it. */
+h1 {
+  color: darkred; /* overrides base.css h1 { color: var(--brand); } — later file wins at same specificity */
+  font-size: clamp(1.75rem, 4vw, var(--text-h1));
+  text-align: center;
+  letter-spacing: 0.0625rem;
+}
+
+section h2 {
+  font-size: var(--text-h2);
+}
+
+article h3 {
+  font-size: var(--text-h3);
+}
+
+p {
+  font-size: var(--text-body);
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+small,
+figcaption {
+  font-size: var(--text-small);
+}
+
+/* ===== B2 - page grid ===== */
+.page-container {
+  width: min(90%, 60rem); /* A4/A7 - required min() + centred container */
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  grid-template-areas:
+    "nav"
+    "header"
+    "main"
+    "footer";
+
+  gap: 1rem;
+}
+
+/* B2 - grid areas */
+.main-nav {
+  grid-area: nav;
+}
+
+.site-header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+}
+
+/* ===== B3 - responsive event card grid ===== */
+.events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+
+  border: 2px solid var(--border-light);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--surface);
+}
+
+/* Keep heading across the full event grid */
+.events > h2 {
+  grid-column: 1 / -1;
+}
+
+/* ===== B5 - mobile-first base layout ===== */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  grid-template-areas:
+    "banner"
+    "events"
+    "submit"
+    "info"
+    "faq";
+
+  gap: 1rem;
+}
+
+/* B5 - keep the banner at the top of main on every breakpoint */
+.banner {
+  grid-area: banner;
+}
+
+#upcoming {
+  grid-area: events;
+}
+
+#submit {
+  grid-area: submit;
+}
+
+#info {
+  grid-area: info;
+}
+
+#faq {
+  grid-area: faq;
+}
+
+/* B5 - tablet / medium screen */
+@media (min-width: 40rem) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-areas:
+      "banner banner"
+      "events events"
+      "submit info"
+      "faq faq";
+  }
+}
+
+/* B5 - large screen with sidebar */
+@media (min-width: 64rem) {
+  main {
+    grid-template-columns: minmax(0, 1fr) 16rem;
+
+    grid-template-areas:
+      "banner banner"
+      "events info"
+      "submit info"
+      "faq faq";
+  }
+}
+
+/* ===== B6 - mobile navigation ===== */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* A6 notes calculation element — boxed element for the box-model calculation */
+.nav-toggle {
+  width: 12.5rem;
+  padding: 1rem;
+  border: 0.3125rem solid var(--brand);
+  border-radius: 0.25rem;
+  background-color: var(--brand);
+  color: var(--paper);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: none; /* hidden on phones */
+  list-style: none;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* B6 - desktop navigation */
+@media (min-width: 64rem) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+  }
 }
