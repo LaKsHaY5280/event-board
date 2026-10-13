@@ -76,7 +76,7 @@ nav.footer-nav ul {
   padding: 2rem 1rem;
   border: 1px solid var(--border-light);
   margin-bottom: var(--spacing-lg);
-  background-image: url("banner-bg.jpg"); /* decorative image */
+  background-image: url("banner-bg.png"); /* decorative image */
   background-size: cover;
   background-position: center;
 }
@@ -86,7 +86,6 @@ nav.footer-nav ul {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--overlay);
 }
 
 /* Keep banner content above the overlay */
@@ -355,6 +354,12 @@ a:active {
 /* B4 - initial */
 .site-header {
   margin: initial;
+  text-align: center;
+}
+
+.site-header img {
+  display: block;
+  margin: 0 auto;
 }
 
 /* B4 - unset */
@@ -477,6 +482,12 @@ main {
 /* B5 - keep the banner at the top of main on every breakpoint */
 .banner {
   grid-area: banner;
+  text-align: center;
+}
+
+.banner p {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #upcoming {
