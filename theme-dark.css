@@ -22,3 +22,8 @@ footer {
 th, td {
   border-color: #444;
 }
+
+/* A6 interactive components */
+#eventSearch { background: #242424; color: var(--text-color); }
+.events article.full { background: #3b2424; }
+.rsvp-button { background: var(--brand-dark); }

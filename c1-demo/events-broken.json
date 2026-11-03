@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "title": "AI Workshop",
+    "date": "2026-11-12",
+    "dateLabel": "Thursday, 12 November, 3:00 PM",
+    "location": "Auditorium",
+    "seats": 0,
+    "free": true,
+    "online": false,
+    "description": "An introductory session on practical artificial intelligence."
+  },
+  {
+    "id": 2,
+    "title": "Coding Hackathon",
+    "date": "2026-11-15",
+    "dateLabel": "Sunday, 15 November, 10:00 AM",
+    "location": "CS Block",
+    "seats": 3,
+    "free": false,
+    "online": false,
+    "description": "Build a solution with a team and present your prototype."
+  },
+  {
+    "id": 3,
+    "title": "Cultural Fest",
+    "date": "2026-11-20",
+    "dateLabel": "Friday, 20 November",
+    "location": "Main Grounds",
+    "seats": 40,
+    "free": true,
+    "online": false,
+    "description": "A celebration of music, dance, art and campus culture."
+  },
+  {
+    "id": 4,
+    "title": "Startup Pitch Night",
+    "date": "2026-11-25",
+    "dateLabel": "Wednesday, 25 November, 6:00 PM",
+    "location": "Seminar Hall",
+    "seats": 12,
+    "free": false,
+    "online": true,
+    "description": "Student teams pitch ideas to a panel and audience.",
+  }
+]

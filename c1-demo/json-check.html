@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Checker (C1)</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+    .ok { color: #176b36; font-weight: 700; } .bad { color: #b42318; font-weight: 700; }
+    pre { background: #f4f6f8; padding: .75rem; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>JSON Checker</h1>
+  <p>Open with <code>?file=events-broken.json</code> or <code>?file=../events.json</code>.</p>
+  <p>File: <b id="name"></b></p>
+  <p id="result" role="status">Checking…</p>
+  <pre id="detail"></pre>
+  <script>
+    // C1: JSON.parse is the validator. A broken file throws a SyntaxError with the exact reason.
+    const file = new URLSearchParams(location.search).get("file") || "events-broken.json";
+    document.querySelector("#name").textContent = file;
+    fetch(file).then(r => r.text()).then(text => {
+      try {
+        const data = JSON.parse(text);
+        document.querySelector("#result").innerHTML = '<span class="ok">✔ Valid JSON</span> (' + data.length + " events)";
+      } catch (e) {
+        document.querySelector("#result").innerHTML = '<span class="bad">✖ Invalid JSON</span>';
+        document.querySelector("#detail").textContent = e.name + ": " + e.message;
+      }
+    });
+  </script>
+</body>
+</html>

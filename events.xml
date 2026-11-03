@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A3/A4: same data as events.json. id is an attribute (identity/metadata);
+     every other field is a child element (content). -->
+<events>
+  <event id="1">
+    <title>AI Workshop</title>
+    <date>2026-11-12</date>
+    <dateLabel>Thursday, 12 November, 3:00 PM</dateLabel>
+    <location>Auditorium</location>
+    <seats>0</seats>
+    <free>true</free>
+    <online>false</online>
+    <description>An introductory session on practical artificial intelligence.</description>
+  </event>
+  <event id="2">
+    <title>Coding Hackathon</title>
+    <date>2026-11-15</date>
+    <dateLabel>Sunday, 15 November, 10:00 AM</dateLabel>
+    <location>CS Block</location>
+    <seats>3</seats>
+    <free>false</free>
+    <online>false</online>
+    <description>Build a solution with a team and present your prototype.</description>
+  </event>
+  <event id="3">
+    <title>Cultural Fest</title>
+    <date>2026-11-20</date>
+    <dateLabel>Friday, 20 November</dateLabel>
+    <location>Main Grounds</location>
+    <seats>40</seats>
+    <free>true</free>
+    <online>false</online>
+    <description>A celebration of music, dance, art and campus culture.</description>
+  </event>
+  <event id="4">
+    <title>Startup Pitch Night</title>
+    <date>2026-11-25</date>
+    <dateLabel>Wednesday, 25 November, 6:00 PM</dateLabel>
+    <location>Seminar Hall</location>
+    <seats>12</seats>
+    <free>false</free>
+    <online>true</online>
+    <description>Student teams pitch ideas to a panel and audience.</description>
+  </event>
+</events>
