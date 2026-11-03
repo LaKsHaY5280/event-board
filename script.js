@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // CS445 A7 (JSON & XML) builds on Lab 6. New code is marked A7-B1 to A7-B5.
-=======
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 // A2: const is used by default; let is used only for values that change.
 const eventsContainer = document.querySelector("#eventsContainer"); // B1: querySelector
 const eventsStatus = document.querySelector("#eventsStatus");
@@ -48,12 +45,9 @@ function renderEvents(eventList) {
     description.textContent = ev.description;
     const mode = document.createElement("p");
     mode.textContent = ev.online ? "Online event" : "In-person event";
-<<<<<<< HEAD
     const price = document.createElement("p"); // A7: ev.free is a JSON boolean
     price.classList.add("price");
     price.textContent = ev.free ? "Free entry" : "Paid entry";
-=======
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
     const availability = document.createElement("p");
     availability.classList.add("availability");
     const label = getAvailability(ev.seats);
@@ -72,10 +66,7 @@ function renderEvents(eventList) {
     card.appendChild(details);
     card.appendChild(description);
     card.appendChild(mode);
-<<<<<<< HEAD
     card.appendChild(price);
-=======
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
     card.appendChild(availability);
     card.appendChild(rsvp);
     eventsContainer.appendChild(card); // B2: appendChild
@@ -95,12 +86,8 @@ function filterEvents() {
     : "No events match your search.";
 }
 
-<<<<<<< HEAD
 // B7 / A7-B1: fetch("events.json") -> res.json() -> render each event as a card.
 // fetch has loading, success and error states.
-=======
-// B7: fetch has loading, success and error states.
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 async function loadEvents() {
   eventsStatus.textContent = "Loading…";
   try {
@@ -109,19 +96,15 @@ async function loadEvents() {
     events = await response.json();
     renderEvents(events);
     eventsStatus.textContent = `Loaded ${events.length} events successfully.`;
-<<<<<<< HEAD
     showJsonValues(); // A7-B2
     checkRoundTrip(); // A7-B3
     loadXml();        // A7-B4 and A7-B5
-=======
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
   } catch (error) {
     console.error("Could not load events:", error);
     eventsStatus.textContent = "Sorry, events could not be loaded. Please run this page using a local web server and try again.";
   }
 }
 
-<<<<<<< HEAD
 // A7-B2: read single values with dot / index access on the parsed JSON.
 function showJsonValues() {
   const firstTitle = events[0].title;                  // index, then dot
@@ -182,8 +165,6 @@ async function loadXml() {
   }
 }
 
-=======
->>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 // B4: click handler toggles the mobile navigation.
 navToggle.addEventListener("click", () => {
   const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
