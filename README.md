@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Campus Event Board — CS445 Lab Assignment 7
 
 An accessible, responsive campus event board for IIIT Vadodara. This version adds JSON and XML to the Lab 6 project: the same events are stored in `events.json` and `events.xml`, and the page loads, reads, round-trips and compares both.
@@ -7,6 +8,13 @@ An accessible, responsive campus event board for IIIT Vadodara. This version add
 - Dates are ISO-8601 strings (`2026-11-12`). In the XML, `id` is an attribute and every other field is an element.
 - **B1** cards render from `fetch('events.json')`; **B2** logs `events[0].title` and the last event's seats; **B3** `JSON.stringify` round-trip check; **B4** `DOMParser` + `getElementsByTagName('title')` shows the XML title on the page; **B5** byte sizes of both files are reported (JSON 1168 bytes, XML 1555 bytes).
 - `c1-demo/` holds the deliberately broken JSON (trailing comma) and a small checker page that shows the exact validator error.
+=======
+# Campus Event Board — CS445 Lab Assignment 6
+
+An accessible, responsive campus event board for IIIT Vadodara. This version adds JavaScript fundamentals, DOM rendering, event handling, JSON fetching, search and client-side form validation to the Lab 5 project.
+
+## Features
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 - Events are stored in `events.json` and rendered dynamically from data.
 - Availability labels: **Full** (0 seats), **Few left** (1–4 seats), and **Open** (5+ seats).
 - Search filters events while typing; press **Escape** to clear.
@@ -18,6 +26,7 @@ An accessible, responsive campus event board for IIIT Vadodara. This version add
 
 ## Files
 - `index.html` — page structure and form
+<<<<<<< HEAD
 - `script.js` — JavaScript (Lab 6 plus the Lab 7 B1–B5 code)
 - `events.json` — single source of truth for event records (JSON)
 - `events.xml` — the same data as XML
@@ -30,6 +39,16 @@ An accessible, responsive campus event board for IIIT Vadodara. This version add
 
 ## Run locally
 Because the page uses `fetch()` to load JSON and XML, open it through a local web server (not by double-clicking the HTML file).
+=======
+- `script.js` — A/B assignment JavaScript
+- `events.json` — single source of truth for event records
+- `base.css`, `style.css` — styles
+- `theme-dark.css` — optional dark theme
+- `NOTES.pdf` — Lab 5 notes followed by Lab 6 answers and the JavaScript appendix
+
+## Run locally
+Because the page uses `fetch()` to load JSON, open it through a local web server (not by double-clicking the HTML file).
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 
 ```bash
 python -m http.server 8000
@@ -37,7 +56,11 @@ python -m http.server 8000
 Then open `http://localhost:8000` in your browser.
 
 ## Testing in DevTools
+<<<<<<< HEAD
 Open the browser Console to see the event data and formatted event strings. For C1, open `http://localhost:8000/c1-demo/json-check.html?file=events-broken.json` (error) and `?file=../events.json` (valid). To test the fetch error state, temporarily rename `events.json` or change its fetch path, reload, then restore it. Test search with a partial title or venue, press Escape, click RSVP, and submit the form with invalid and valid values.
+=======
+Open the browser Console to see the event data and formatted event strings. To test the fetch error state, temporarily rename `events.json` or change its fetch path, reload, then restore it. Test search with a partial title or venue, press Escape, click RSVP, and submit the form with invalid and valid values.
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
 
 ## GitHub
 Existing repository: https://github.com/LaKsHaY5280/event-board

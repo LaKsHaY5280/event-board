@@ -2,22 +2,36 @@
   {
     "id": 1,
     "title": "AI Workshop",
+<<<<<<< HEAD
     "date": "2026-11-12",
     "dateLabel": "Thursday, 12 November, 3:00 PM",
     "location": "Auditorium",
     "seats": 0,
     "free": true,
+=======
+    "date": "2026-11-12T15:00:00",
+    "dateLabel": "Thursday, 12 November, 3:00 PM",
+    "location": "Auditorium",
+    "seats": 0,
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
     "online": false,
     "description": "An introductory session on practical artificial intelligence."
   },
   {
     "id": 2,
     "title": "Coding Hackathon",
+<<<<<<< HEAD
     "date": "2026-11-15",
     "dateLabel": "Sunday, 15 November, 10:00 AM",
     "location": "CS Block",
     "seats": 3,
     "free": false,
+=======
+    "date": "2026-11-15T10:00:00",
+    "dateLabel": "Sunday, 15 November, 10:00 AM",
+    "location": "CS Block",
+    "seats": 3,
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
     "online": false,
     "description": "Build a solution with a team and present your prototype."
   },
@@ -28,13 +42,17 @@
     "dateLabel": "Friday, 20 November",
     "location": "Main Grounds",
     "seats": 40,
+<<<<<<< HEAD
     "free": true,
+=======
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
     "online": false,
     "description": "A celebration of music, dance, art and campus culture."
   },
   {
     "id": 4,
     "title": "Startup Pitch Night",
+<<<<<<< HEAD
     "date": "2026-11-25",
     "dateLabel": "Wednesday, 25 November, 6:00 PM",
     "location": "Seminar Hall",
@@ -42,5 +60,23 @@
     "free": false,
     "online": true,
     "description": "Student teams pitch ideas to a panel and audience."
+=======
+    "date": "2026-11-25T18:00:00",
+    "dateLabel": "Wednesday, 25 November, 6:00 PM",
+    "location": "Seminar Hall",
+    "seats": 12,
+    "online": true,
+    "description": "Student teams pitch ideas to a panel and audience."
+  },
+  {
+    "id": 5,
+    "title": "Sports Meet",
+    "date": "2026-12-02",
+    "dateLabel": "Wednesday, 2 December",
+    "location": "Sports Complex",
+    "seats": 18,
+    "online": false,
+    "description": "A campus-wide day of friendly sporting competitions."
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
   }
 ]

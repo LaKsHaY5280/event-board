@@ -587,9 +587,12 @@ input:invalid:not(:focus):not(:placeholder-shown), textarea:invalid:not(:focus):
   .nav-links.nav-open { flex-direction: column; gap: .6rem; }
   input[type="text"], input[type="date"], input[type="email"], textarea { width: 100%; }
 }
+<<<<<<< HEAD
 
 /* CS445 A7: JSON/XML report section and free/paid label */
 .data-report { list-style: none; padding: 0; }
 .data-report li { margin-bottom: .5rem; }
 code { font-family: Consolas, "Courier New", monospace; background: var(--surface); padding: 0 .25rem; }
 .price { font-weight: 600; }
+=======
+>>>>>>> 454a61b5280900034244d31364cd18e2ace7868b
